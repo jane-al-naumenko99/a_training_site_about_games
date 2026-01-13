@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: aliceblue;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    background: #000000;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 100%, rgba(74, 40, 0, 1) 100%);
+    width: 100%;
+}
+.container {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+header { /*  header - это шапка */
+    padding: 50px 0; /*  padding - отступы */
+}
+
+header .logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800; /* font-weight - толщина шрифта, 800 - extra bold, очень жирный  */
+}
+
+header nav {
+    float: right; /* float - обтекание, элемент выравнивается по правому краю */
+    width: 50%;
+}
+
+header nav ul {
+   list-style: none; /* list-style - оформление списка, none - без оформления */
+   display: flex; /* display: flex - включение флексбокса для родительского элемента */
+    justify-content: space-between; /* justify-content - выравнивание по главной оси, space-between - равные отступы между элементами */
+    z-index: 2; /* z-index - слои, будет работать как второй слой только если у них есть position: relative; */
+    position: relative;
+}
+
+header nav ul li {
+    display: inline-block; /* display: inline-block - строчно-блочный элемент, позволяет задавать ширину и высоту */ /* transition - плавный переход для свойства, которое меняется при наведении */
+}
+
+header nav ul li a {
+    color: #fff;  
+}
+
+header nav ul li.active::after { /* задаем значение только для class="active" */
+    /* псевдоэлемент :after  */
+    content: ''; /* content - содержимое псевдоэлемента, пустая строка означает, что элемент будет пустым */
+    display: block; /* display - отображение элемента, block - блочный элемент */
+    width: 40px;
+    height: 5px;
+    background: #dc7000;
+    border-radius: 10px; /* border-radius - скругление углов */
+    position: relative; /* position - позиционирование элемента, relative - относительно его нормального положения */
+    top: 10px; /* top - отступ сверху */
+    left: -15px; /* left - отступ слева */
+}
+
+header nav ul li:not(.active):not(.btn) a:hover { /*Селектор a:hover в CSS задаёт стиль для ссылки в момент, когда на неё наведен курсор мыши, но кнопка ещё не нажатана. */
+    border-bottom: 5px solid #dc7000; /* border-bottom - нижняя граница */
+}
+
+header nav ul li.btn a {
+    background-color: #fa9021;
+    padding: 10px 25px; /*  padding - внутренние отступы */
+    border-radius: 30px; /* border-radius - скругление углов */
+    transition: all 500ms ease; /* transition - плавный переход для свойства, которое меняется при наведении */
+}
+
+header nav ul li.btn a:hover { /*  эффект при наведении*/
+    background-color: #dc7000;
+}
+
+.hero { /*  секция hero - это раздел с презентацией */
+    padding-bottom: 100px;
+    position: relative; /* position - позиционирование элемента, relative - относительно его нормального положения */
+    z-index: 1; /* z-index - слои */
+}
+
+.hero--info { /*  секция hero--info - это содержит весь текст */
+    width: 530px;
+    padding-top: 70px;
+}
+
+.hero--info h2 {
+    color: #E87D0E;
+    font-size: 20px;
+    font-weight: 600; /*  600 жирный шрифт, bold  */
+}
+.hero--info h1 {
+    font-size: 50px;
+    font-weight: 600; /*  600 жирный шрифт, bold  */
+}
+
+.hero--info p {
+    font-weight: 500; /*  500 medium */
+    line-height: 170%; /* line-height - межстрочный интервал */
+    margin: 30px 0; /* margin - внешние отступы */
+}
+
+.hero--info .btn {
+    background-color: #FA8305;
+    color: #fff;
+    border-radius: 50px; /* border-radius - скругление углов */
+    padding: 15px 30px; /*  padding - внутренние отступы */
+    border: 0; /*  убрали обводку */
+    transition: all 500ms ease; /* transition - плавный переход для свойства, которое меняется при наведении */
+    font-size: 17px;
+}
+
+.hero--info .btn:hover { /*  эффект при наведении*/
+    cursor: pointer; /* cursor - вид курсора, pointer - указатель */
+    transform: scale(1.1); /* transform - трансформация элемента, scale - масштабирование, увеличение кнопки на 10% */
+}
+
+.hero img {
+    position: absolute; /* position - позиционирование элемента, absolute - относительно все страницы, для того, чтобы картинка позиционировалась только в блоке презентации добавили в секцию .hero { position: relative; }, теперь любые абсолютные объекты позиционируются относительно самой секции тк сама секция относительная */
+    top: -150px;
+    right: 0;
+}
+
+
