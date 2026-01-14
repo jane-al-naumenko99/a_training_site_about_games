@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages (diagnostic)
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-path: site
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show repository top-level files
+        run: |
+          echo "Working dir: $(pwd)"
+          ls -la
+
+      - name: Show files and sizes
+        run: |
+          du -sh .
+          echo "Top largest files:" 
+          find . -type f -printf "%s %p\n" | sort -nr | head -n 50
+
+      - name: Prepare site directory (only necessary files)
+        run: |
+          rm -rf site || true
+          mkdir site
+          # copy typical static site files; adjust if your build outputs to another folder
+          cp -r index.html css img site/ || true
+          echo "Site contents:"
+          ls -la site
+          du -sh site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'site'
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+        with:
+          # временно не дожидаемся завершения деплоя, чтобы избежать падения по таймауту
+          wait_for_deployment: false

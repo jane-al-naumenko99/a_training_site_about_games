@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: aliceblue;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    background: #000000;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1) 100%, rgba(74, 40, 0, 1) 100%);
+    width: 100%;
+}
+.container {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+header { /*  header - это шапка */
+    padding: 50px 0; /*  padding - отступы */
+}
+
+header .logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800; /* font-weight - толщина шрифта, 800 - extra bold, очень жирный  */
+}
+
+header nav {
+    float: right; /* float - обтекание, элемент выравнивается по правому краю */
+    width: 50%;
+}
+
+header nav ul {
+   list-style: none; /* list-style - оформление списка, none - без оформления */
+   display: flex; /* display: flex - включение флексбокса для родительского элемента */
+    justify-content: space-between; /* justify-content - выравнивание по главной оси, space-between - равные отступы между элементами */
+    z-index: 2; /* z-index - слои, будет работать как второй слой только если у них есть position: relative; */
+    position: relative;
+}
+
+header nav ul li {
+    display: inline-block; /* display: inline-block - строчно-блочный элемент, позволяет задавать ширину и высоту */ /* transition - плавный переход для свойства, которое меняется при наведении */
+}
+
+header nav ul li a {
+    color: #fff;  
+}
+
+header nav ul li.active::after { /* задаем значение только для class="active" */
+    /* псевдоэлемент :after  */
+    content: ''; /* content - содержимое псевдоэлемента, пустая строка означает, что элемент будет пустым */
+    display: block; /* display - отображение элемента, block - блочный элемент */
+    width: 40px;
+    height: 5px;
+    background: #dc7000;
+    border-radius: 10px; /* border-radius - скругление углов */
+    position: relative; /* position - позиционирование элемента, relative - относительно его нормального положения */
+    top: 10px; /* top - отступ сверху */
+    left: -15px; /* left - отступ слева */
+}
+
+header nav ul li:not(.active):not(.btn) a:hover { /*Селектор a:hover в CSS задаёт стиль для ссылки в момент, когда на неё наведен курсор мыши, но кнопка ещё не нажатана. */
+    border-bottom: 5px solid #dc7000; /* border-bottom - нижняя граница */
+}
+
+header nav ul li.btn a {
+    background-color: #fa9021;
+    padding: 10px 25px; /*  padding - внутренние отступы */
+    border-radius: 30px; /* border-radius - скругление углов */
+    transition: all 500ms ease; /* transition - плавный переход для свойства, которое меняется при наведении */
+}
+
+header nav ul li.btn a:hover { /*  эффект при наведении*/
+    background-color: #dc7000;
+}
+
+.hero { /*  секция hero - это раздел с презентацией */
+    padding-bottom: 100px;
+    position: relative; /* position - позиционирование элемента, relative - относительно его нормального положения */
+    z-index: 1; /* z-index - слои */
+}
+
+.hero--info { /*  секция hero--info - это содержит весь текст */
+    width: 530px;
+    padding-top: 70px;
+}
+
+.hero--info h2 {
+    color: #E87D0E;
+    font-size: 20px;
+    font-weight: 600; /*  600 жирный шрифт, bold  */
+}
+.hero--info h1 {
+    font-size: 50px;
+    font-weight: 600; /*  600 жирный шрифт, bold  */
+}
+
+.hero--info p {
+    font-weight: 500; /*  500 medium */
+    line-height: 170%; /* line-height - межстрочный интервал */
+    margin: 30px 0; /* margin - внешние отступы */
+}
+
+.hero--info .btn {
+    background-color: #FA8305;
+    color: #fff;
+    border-radius: 50px; /* border-radius - скругление углов */
+    padding: 15px 30px; /*  padding - внутренние отступы */
+    border: 0; /*  убрали обводку */
+    transition: all 500ms ease; /* transition - плавный переход для свойства, которое меняется при наведении */
+    font-size: 17px;
+}
+
+.hero--info .btn:hover { /*  эффект при наведении*/
+    cursor: pointer; /* cursor - вид курсора, pointer - указатель */
+    transform: scale(1.1); /* transform - трансформация элемента, scale - масштабирование, увеличение кнопки на 10% */
+}
+
+.hero img {
+    position: absolute; /* position - позиционирование элемента, absolute - относительно все страницы, для того, чтобы картинка позиционировалась только в блоке презентации добавили в секцию .hero { position: relative; }, теперь любые абсолютные объекты позиционируются относительно самой секции тк сама секция относительная */
+    top: -150px;
+    right: 0;
+}
+
+/*секция с играми*/
+.trending {
+    padding-top: 50px; /*отступ сверху*/
+}
+
+.trending h3 {
+    font-weight: 600;
+    font-size: 31px;
+
+
+}
+.trending .see-all {
+    color: #fff;
+    background: #25222D;
+    border-radius: 5px;
+    padding: 12px 23px;
+    float: right; /* чтобы кнопка находилась по правую сторону*/
+    display: block;
+    transition: all 500ms ease;
+}
+
+.trending .see-all:hover {
+    transform: scale(1.1);
+
+}
+
+.trending .games {
+    display: flex;
+    justify-content: space-between; /* растянули на всю ширину */
+    width: 100%;
+    padding: 50px 0;
+}
+
+.block span {  /* изменила тк метод из видео не работает */
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.trending .games span img {
+    position: relative;
+    top: 5px;
+    margin-right: 7px;
+}
+
+.big-text {
+    padding: 50px 0;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    width: 800px;
+}
+
+.banner {
+    padding: 80px 0;
+}
+
+.banner h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.banner p {
+    line-height: 170%;
+    margin-bottom: 30px;
+    width: 550px;
+}
+
+.banner img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* секция с изобрпажениями кружочками */
+
+.features {
+    background: url(/img/Rectangle\ 5.png) no-repeat center center fixed; /* fixed - фикисрует изображение */
+    background-size: cover; /* чтобы изображение было на всю ширину */
+    padding: 80px 0;
+}
+
+.features h3,  /* запетая критична, без нее Браузер читает это как один селектор .features h3.features p , который ищет pвнутри . Такой структуры HTML нет → стили теряются.h3.features */
+.features p {
+    margin-bottom: 20px;
+    text-align: center; /*текст по центру */
+    max-width: 800px; /*тк установили макисмальную ширину блогка 800, текст сместился. для выравнивания по центру необходимо добавить margin-left:auto; - это левый внешний отступ «на всё свободное место» . Браузер сам вычисляет размер отступа и занимает всё доступное пространство слева от элемента Представьте себе ряд книг на полке. margin-left: auto— это когда между книгой и правым краем полки кладётся всё оставшееся место . Книга автоматически прижимается к левому краю. */
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.features h3 /* обращаемся только к h3 */ 
+{   font-size: 30px;
+}
+
+.info   /* .feature . info - не работает, тк Ваш CSS : .feature .infoищет элемент .info, который находится внутри .feature .
+
+Ваш HTML :
+
+XML
+<div class="info">  <!-- ← .info есть -->
+  <div class="block">...</div>
+</div>
+Но .feature отсутствует → селектор не находит элемент → стили теряются. РАНЕЕ ЭТА ЖЕ ПРОБЛЕМА БЫЛА .TRENGING BLOCK SPAN - .TRENDING ПРИШЛОСЬ УБРАТЬ, 
+КЛАСС ДОЛЖЕН БЫТЬ ПРОПИСАН ЛИБО ОДНОЙ ФРАЗОЙ (В ОДНИХ СКОБКАХ КЛАССА) ЛИБО ЭТО САМОСТОЯТЕЛЬНЫЕ ЭЕЛЕМЕНТЫ БЕЗ КЛАССА ТИПА H3/P/IMG */
+   { display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /*WRAP чтобы блоки могли переходить на новые ряды */
+
+}
+
+.features .info .block /*означает:
+Элемент .block, который находится внутри .info , который находится внутри .features . div class="features">                    ✅ ← .features ✓
+    <div class="container"> 
+        <h3>...</h3>
+        <p>...</p>                         
+        <div class="info">                  ✅ ← .info ✓
+            <div class="block">             ✅ ← .block ✓
+Все уровни вложенности происходят → селектор находит все .blockи стили применяются. */
+
+{   text-align: center; /*текст и изображения по центру */
+    width: 20%;
+    margin: 30px 2%;
+}
+
+.features .info .block .img {
+    margin-bottom: 15px;
+}
+
+.projects {
+    
+
+}
