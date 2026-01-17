@@ -148,7 +148,7 @@ header nav ul li.btn a:hover { /*  эффект при наведении*/
 
 
 }
-.trending .see-all {
+.trending .see-all, .projects .see-all { /* объединила стили для двух кнопок */
     color: #fff;
     background: #25222D;
     border-radius: 5px;
@@ -158,7 +158,8 @@ header nav ul li.btn a:hover { /*  эффект при наведении*/
     transition: all 500ms ease;
 }
 
-.trending .see-all:hover {
+
+.trending .see-all:hover, .projects .see-all:hover {
     transform: scale(1.1);
 
 }
@@ -267,6 +268,31 @@ XML
 }
 
 .projects {
-    
-
+    padding: 100px 0;
 }
+
+.projects h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.projects p {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.projects .images {
+    display: flex;
+    justify-content: space-around; /* равные отступы вокруг элементов */
+    margin-bottom: 25px;
+}
+
+.projects .see-all {
+    float: none; /* не применять центрирование по правой стороне */
+    width: fit-content; /* ширина по размеру текста; (чтобы при смене языка фон подстраивался под текст) Нужно изменить ширину, чтобы она подстраивалась под размер текста. Замените width: 60px; на width: fit-content;: width: fit-content; будет автоматически подстраивать ширину кнопки под содержимое текста. */
+    text-align: center;
+    margin: 0 auto; /* чтобы кнопка была по центру */
+}
+
+
+
