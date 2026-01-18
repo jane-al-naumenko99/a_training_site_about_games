@@ -74,19 +74,20 @@ header nav ul li.active::after { /* задаем значение только �
     left: -15px; /* left - отступ слева */
 }
 
-header nav ul li:not(.active):not(.btn) a:hover { /*Селектор a:hover в CSS задаёт стиль для ссылки в момент, когда на неё наведен курсор мыши, но кнопка ещё не нажатана. */
+header nav ul li:not(.active) a:hover { /*Селектор a:hover в CSS задаёт стиль для ссылки в момент, когда на неё наведен курсор мыши, но кнопка ещё не нажатана. */
     border-bottom: 5px solid #dc7000; /* border-bottom - нижняя граница */
 }
 
-header nav ul li.btn a {
+header nav ul li button, .email .block button {
     background-color: #fa9021;
     padding: 10px 25px; /*  padding - внутренние отступы */
     border-radius: 30px; /* border-radius - скругление углов */
     transition: all 500ms ease; /* transition - плавный переход для свойства, которое меняется при наведении */
 }
 
-header nav ul li.btn a:hover { /*  эффект при наведении*/
+header nav ul li button:hover, .email .block button:hover { /*  эффект при наведении*/
     background-color: #dc7000;
+    transform: scale(1.05);
 }
 
 .hero { /*  секция hero - это раздел с презентацией */
@@ -116,7 +117,7 @@ header nav ul li.btn a:hover { /*  эффект при наведении*/
     margin: 30px 0; /* margin - внешние отступы */
 }
 
-.hero--info .btn {
+.hero--info button {
     background-color: #FA8305;
     color: #fff;
     border-radius: 50px; /* border-radius - скругление углов */
@@ -126,7 +127,7 @@ header nav ul li.btn a:hover { /*  эффект при наведении*/
     font-size: 17px;
 }
 
-.hero--info .btn:hover { /*  эффект при наведении*/
+.hero--info button:hover { /*  эффект при наведении*/
     cursor: pointer; /* cursor - вид курсора, pointer - указатель */
     transform: scale(1.1); /* transform - трансформация элемента, scale - масштабирование, увеличение кнопки на 10% */
 }
@@ -293,6 +294,86 @@ XML
     text-align: center;
     margin: 0 auto; /* чтобы кнопка была по центру */
 }
+
+/*нижняя часть - блок для эмейла*/
+
+.email {
+    padding-bottom: 120px;
+}
+
+.email h3 {
+    margin-top: 60px;
+    font-size: 30px;
+    text-align: left;
+}
+
+.email .block {
+    background: #1C140F;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 40px;
+    width: 94%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* grid-template-columns - создание колонок, 1fr 1fr - две колонки равной ширины */
+    gap: 20px;
+    align-items: start;
+}
+
+.email .block h4 {
+    font-size: 30px;
+    font-weight: 500;
+    grid-column: 1; /* grid-column - размещение элемента в колонках, 1 - первая колонка */
+}
+
+.email .block p {
+    width: 100%;
+    grid-column: 1;
+}
+
+.email .block > div {
+    grid-column: 2; /* grid-column - размещение элемента в колонках, 2 - вторая колонка */
+    grid-row: 1 / 3;    /* grid-row - размещение элемента в строках, 1 / 3 - с первой по третью строку */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.email .block input {
+    background: #fff;
+    outline: none; /* нет подсветки при наведении outline - обводка при фокусе, none - без обводки */
+    border: 0; /* убрали обводку */
+    border-radius: 5px;
+    width: 380px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 20px 30px;
+    color: maroon;
+    position: relative;
+    bottom: -60px;
+    z-index: 1;
+    padding-right: 150px; /* чтобы текст не заходил на кнопку */
+
+}
+
+.email .block input::placeholder { /* обращение к псевдоэлементу плейсхолдер */
+    color: #393cf5;
+}
+
+
+.email .block button {
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 28px;
+    position: relative;
+    left: -10px;
+    z-index: 2;
+}
+
+
 
 
 
