@@ -34,7 +34,7 @@ header { /*  header - это шапка */
     padding: 50px 0; /*  padding - отступы */
 }
 
-header .logo {
+header .logo, footer .blocks .logo {
     text-transform: uppercase;
     font-size: 29px;
     font-weight: 800; /* font-weight - толщина шрифта, 800 - extra bold, очень жирный  */
@@ -374,6 +374,68 @@ XML
 }
 
 
+/* футер */
+footer {
+    background: #000000;
+    padding: 50px 0;
+    justify-content: space-between;
+    line-height: 180%;
+}
 
+footer .blocks {
+    display: grid;
+    grid-template-columns: 30% 20% 30% 20%; /* 4 колонки равной ширины */
+    gap: 30px;
+    grid-row: 100px 150px 200px; /* высота рядов */
+}
 
+footer .blocks > div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+}
+
+footer .blocks .logo {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+footer .blocks h4 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-left: 60px;
+}
+
+footer .blocks p {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 60px;
+}
+
+footer .blocks .img {
+    display: flex;          /* контейнер делает элементы в строку */
+    flex-direction: row;    /* горизонтально (по умолчанию и так row, но можно явно) */
+    gap: 5px;
+    align-items: flex-end;   /* выравнивание по нижнему краю */
+}
+
+footer .blocks .img img {
+    width: 70px;
+    height: 70px;
+    display: block;         /* необязательно, но аккуратнее */
+}
+
+footer .blocks ul {
+    list-style: none;
+    margin-left: 30px;
+}
+
+footer .blocks ul li {
+    margin-left: 30px;
+    margin-bottom: 10px;
+    color: aliceblue;
+}
 
