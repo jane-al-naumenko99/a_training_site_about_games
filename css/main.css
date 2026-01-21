@@ -431,6 +431,7 @@ footer .blocks .img img {
 footer .blocks ul {
     list-style: none;
     margin-left: 30px;
+    margin-bottom: none;
 }
 
 footer .blocks ul li {
@@ -439,3 +440,15 @@ footer .blocks ul li {
     color: aliceblue;
 }
 
+footer hr {
+    border: 0;
+    height: 0.6px;
+    background: #ccc;
+    margin: 30px 0;
+}
+
+footer > p {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
